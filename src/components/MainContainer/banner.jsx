@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import {Carousel} from 'react-bootstrap';
+import { Carousel } from 'react-bootstrap';
 import Banner from '../../images/img_bg_1.jpg';
 import Banner1 from '../../images/img_bg_2.jpg';
 
@@ -8,30 +8,29 @@ class ControlledCarousel extends React.Component {
     constructor(props, context) {
       super(props, context);
   
-      this.handleSelect = this.handleSelect.bind(this);
-  
       this.state = {
-        index: 0,
         direction: null
       };
     }
   
-    handleSelect(selectedIndex, e) {
+    handleSelect = (selectedIndex, e) => {
       /* alert(`selected=${selectedIndex}, direction=${e.direction}`); */
       this.setState({
-        index: selectedIndex,
         direction: e.direction
       });
     }
   
     render() {
-      const { index, direction } = this.state;
+      const { direction } = this.state;
   
       return (
         <Carousel
-          activeIndex={index}
           direction={direction}
           onSelect={this.handleSelect}
+          slide={true}
+          interval={10000}
+          pauseOnHover={false}
+          /* bsClass={'hellow'} */
         >
           <Carousel.Item>
             <img width={900} height={500} alt="900x500" src={Banner}/>
