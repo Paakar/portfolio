@@ -1,9 +1,31 @@
 import * as React from 'react';
-
+import {Panel, PanelGroup} from 'react-bootstrap';
 class Education extends React.Component {
+    constructor(props, context) {
+        super(props, context);
+    
+        this.state = {
+          open: true
+        };
+      }
     render(){
         return(
             <section class="paakar-education" data-section="education">
+
+            <PanelGroup accordion id="accordion-uncontrolled-example" defaultActiveKey="2">
+                <Panel eventKey="1">
+                    <Panel.Heading>
+                        <Panel.Title toggle>Panel heading 1</Panel.Title>
+                    </Panel.Heading>
+                    <Panel.Body collapsible>Panel content 1</Panel.Body>
+                </Panel>
+                    <Panel eventKey="2">
+                        <Panel.Heading>
+                            <Panel.Title toggle>Panel heading 2</Panel.Title>
+                        </Panel.Heading>
+                        <Panel.Body collapsible>Panel content 2</Panel.Body>
+                    </Panel>
+            </PanelGroup>
             <div class="paakar-narrow-content">
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">

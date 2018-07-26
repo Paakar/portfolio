@@ -1,9 +1,43 @@
 import * as React from 'react';
+import VisibilitySensor from 'react-visibility-sensor';
+
 
 class Skills extends React.Component{
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            show: false
+        }
+    }
+
+    componentDidMount() {
+        window.addEventListener('scroll', this.handleScroll)
+    }
+
+    handleScroll = () => {
+        
+    }
+    /* var onChange = function (isVisible) {
+        console.log('Element is now %s', isVisible ? 'visible' : 'hidden');
+      }; */
+    onChange = (isVisible) => {
+        console.log('Element is now %s', isVisible ? 'visible' : 'hidden');
+        if (isVisible == true){
+            this.setState(
+                {
+                    show: true
+
+                }
+            )
+        }
+    }
+
     render(){
         return (
             <section className="paakar-skills" data-section="skills">
+            <VisibilitySensor onChange={this.onChange} />
             <div className="paakar-narrow-content">
                 <div className="row">
                     <div className="col-md-6 col-md-offset-3 col-md-pull-3 animate-box">
@@ -19,7 +53,7 @@ class Skills extends React.Component{
                         <div className="progress-wrap">
                             <h3>Photoshop</h3>
                             <div className="progress">
-                                 <div className="progress-bar color-1" role="progressbar" aria-valuenow="75"
+                                 <div className={`progress-bar color-1 ${this.state.show ? 'visible' : 'novisible'}`} role="progressbar" aria-valuenow="75"
                                   aria-valuemin="0" aria-valuemax="100" >
                                 <span>75%</span>
                                   </div>
@@ -30,7 +64,7 @@ class Skills extends React.Component{
                         <div className="progress-wrap">
                             <h3>jQuery</h3>
                             <div className="progress">
-                                 <div className="progress-bar color-2" role="progressbar" aria-valuenow="60"
+                                 <div className={`progress-bar color-2 ${this.state.show ? 'visible' : 'novisible'}`} role="progressbar" aria-valuenow="60"
                                   aria-valuemin="0" aria-valuemax="100" >
                                 <span>60%</span>
                                   </div>
@@ -41,7 +75,7 @@ class Skills extends React.Component{
                         <div className="progress-wrap">
                             <h3>HTML5</h3>
                             <div className="progress">
-                                 <div className="progress-bar color-3" role="progressbar" aria-valuenow="85"
+                                 <div className={`progress-bar color-3 ${this.state.show ? 'visible' : 'novisible'}`} role="progressbar" aria-valuenow="85"
                                   aria-valuemin="0" aria-valuemax="100" >
                                 <span>85%</span>
                                   </div>
@@ -52,7 +86,7 @@ class Skills extends React.Component{
                         <div className="progress-wrap">
                             <h3>CSS3</h3>
                             <div className="progress">
-                                 <div className="progress-bar color-4" role="progressbar" aria-valuenow="90"
+                                 <div className={`progress-bar color-4 ${this.state.show ? 'visible' : 'novisible'}`} role="progressbar" aria-valuenow="90"
                                   aria-valuemin="0" aria-valuemax="100">
                                 <span>90%</span>
                                   </div>
@@ -63,7 +97,7 @@ class Skills extends React.Component{
                         <div className="progress-wrap">
                             <h3>WordPress</h3>
                             <div className="progress">
-                                 <div className="progress-bar color-5" role="progressbar" aria-valuenow="70"
+                                 <div className={`progress-bar color-5 ${this.state.show ? 'visible' : 'novisible'}`} aria-valuenow="70"
                                   aria-valuemin="0" aria-valuemax="100">
                                 <span>70%</span>
                                   </div>
@@ -74,7 +108,7 @@ class Skills extends React.Component{
                         <div className="progress-wrap">
                             <h3>SEO</h3>
                             <div className="progress">
-                                 <div className="progress-bar color-6" role="progressbar" aria-valuenow="80"
+                                 <div className={`progress-bar color-6 ${this.state.show ? 'visible' : 'novisible'}`} role="progressbar" aria-valuenow="80"
                                   aria-valuemin="0" aria-valuemax="100">
                                 <span>80%</span>
                                   </div>
