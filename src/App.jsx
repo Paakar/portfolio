@@ -7,9 +7,11 @@ import MainContainer from './components/MainContainer';
 class App extends Component {
   render() {
     return (
-      <div className="container-wrap">
-        <SideBar/>
-        <MainContainer/>
+      <div id="paakar-page">
+        <div className="container-wrap">
+          <SideBar/>
+          <MainContainer/>
+        </div>
       </div>
     );
   }

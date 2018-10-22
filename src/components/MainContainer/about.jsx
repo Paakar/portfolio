@@ -1,6 +1,45 @@
 import * as React from 'react';
 
 class About extends React.Component{
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            items: [{
+                id: 1,
+                name: 'Graphic Design',
+                icon: 'icon-bulb',
+                style: 'color-1'
+            },
+            {
+                id: 2,
+                name: 'Website Design',
+                icon: 'icon-globe-outline',
+                style: 'color-2'
+            },
+            {
+                id: 3,
+                name: 'Graphic Design',
+                icon: 'icon-bulb',
+                style: 'color-1'
+            },
+            {
+                id: 4,
+                name: 'Website Design',
+                icon: 'icon-globe-outline',
+                style: 'color-2'
+            },
+            {
+                id: 5,
+                name: 'Graphic Design',
+                icon: 'icon-bulb',
+                style: 'color-1'
+            }
+        ]
+        }
+    }
+
+
     render(){
         return(
             <section className="paakar-about" data-section="about" id="about">
@@ -18,7 +57,19 @@ class About extends React.Component{
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col-md-3 animate-box" data-animate-effect="fadeInLeft">
+                            {this.state.items.map((item) => {
+                                return (
+                                    <div key={item.id} className="col-md-3 animate-box" data-animate-effect="fadeInLeft">
+                                        <div className={`services ${item.style}`}>
+                                            <span className="icon2">
+                                                <i className={`${item.icon}`}/>
+                                            </span>
+                                            <h3>{item.name}</h3>
+                                        </div>
+                                    </div>
+                                )
+                            })}
+                            {/* <div className="col-md-3 animate-box" data-animate-effect="fadeInLeft">
                                 <div className="services color-1">
                                     <span className="icon2"><i className="icon-bulb"></i></span>
                                     <h3>Graphic Design</h3>
@@ -41,7 +92,7 @@ class About extends React.Component{
                                     <span className="icon2"><i className="icon-phone3"></i></span>
                                     <h3>Application</h3>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                         <div className="row">
                             <div className="col-md-12 animate-box" data-animate-effect="fadeInLeft">
